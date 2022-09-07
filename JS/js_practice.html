@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS Practice</title>
+</head>
+<body>
+  <p>태조 이성계가 태어난 년도는?</p>
+	<input type="text" id="answer">
+	<button id="send-answer">제출</button>
+
+  <script>
+    function samyookkoo (nn) {
+      // if ( nn % 3 == 0 && nn < 9) {
+      //     console.log('3의 배수');
+      // } else if( nn % 9 == 0 && nn < 11) {
+      //     console.log('9의 배수');
+      // } else if( nn == 11 ){
+      //     console.log('통과');
+      // } else{
+      //     console.log('what');
+      // }
+      if (nn % 9 == 0) {
+        console.log("박수x2");
+      } else if (nn % 3 == 0){
+        console.log('박수');
+      } else {
+        console.log('통과');
+      }
+    }
+    // samyookkoo(27);
+    
+    function samyookkoo02 (num) {
+      const number = String(num);
+      const last = number.charAt(number.length - 1);
+      if (last % 3 == 0) {
+        console.log("박수");
+      } else {
+        console.log('꺼졍');
+      }
+    }
+    // samyookkoo02(26);
+
+    function estateExam(a, b) {
+      if (a<40 || b<40) {
+          console.log('no!');
+      } else if(a+b >=120){
+          console.log('yes!!!!');
+      } else{
+          console.log('fxxing...');
+      }
+    }
+    // estateExam(120,120);
+
+    var price = 10000;
+    var futurePrice = 0;
+    if (price >= 50000) {
+      futurePrice = price * 1.20 * 1.20;
+    } else {
+      futurePrice = price * 1.15 * 1.15;
+    }
+    // console.log(futurePrice);
+
+    var first = 360;
+    second = first * (2/3 ** 10);
+    third = second * 2/3;
+    total = first + second + third;
+    console.log(second);
+		console.log(2 ** 4); //거듭제곱
+
+		var count = 0;
+		const answerBtn = document.getElementById('send-answer');
+		answerBtn.addEventListener('click', ()=>{
+			const inputBox = document.getElementById('answer');
+			count++;
+			if (inputBox.value == 1335) {
+				alert('정답!');
+			} else if(inputBox.value != 1335 && count>= 3) {
+				alert('멍청아!!!');
+			} else {
+				alert('땡!!!');
+			}
+		})
+  </script>
+</body>
+</html>

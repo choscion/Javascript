@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>JS</title>
+  </head>
+  <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html" class="form-area">
+          <div class="my-3">
+            <input type="text" class="form-control" id="idInput">
+           </div>
+           <div class="my-3">
+             <input type="password" class="form-control" id="passInput">
+           </div>
+           <button type="submit" class="btn btn-primary">전송</button>
+           <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form> 
+      </div>
+    </div> 
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="bottom-bar">
+        <div class="bar-color"></div>
+      </div>
+    </nav> 
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul> 
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button class="btn btn-danger btn_click">로그인</button>
+    </div>
+
+    <div class="alert alert-danger">
+      <span class="time">5</span>초 이내 구매시 사은품 증정
+    </div>
+
+    <div style="overflow: hidden">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="car1.png">
+        </div>
+        <div class="slide-box">
+          <img src="car2.png">
+        </div>
+        <div class="slide-box">
+          <img src="car3.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="lorem" style="width: 200px; height: 80px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at,
+      laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium
+      exercitationem.
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+      const navBtn = document.querySelector('.navbar-toggler');
+      const list = document.querySelector('.list-group');
+
+      const button = document.querySelector('.btn_click');
+      const modal = document.querySelector('.black-bg');
+      const closeBtn = document.querySelector('.btn-danger');
+
+      const submitBtn = document.querySelector('.btn-primary');
+      const submit = document.querySelector('.form-area');
+      const idInput = document.getElementById('idInput');
+      const passInput = document.getElementById('passInput');
+      const passLength = document.getElementById('passInput');
+
+      // 햄버거메뉴
+      navBtn.addEventListener('click', ()=>{
+        list.classList.toggle('is_active');
+      });
+
+      // 모달창
+      button.addEventListener('click', ()=>{
+        modal.classList.add('is_opened');
+      });
+      closeBtn.addEventListener('click', ()=>{
+        modal.classList.remove('is_opened');
+      });
+
+      //아이디 비번 창 공백 검사
+      submit.addEventListener('submit', function(e){
+        if (idInput.value == '' || passInput.value == '') {
+          alert('공백이다');
+          e.preventDefault();
+        }
+        if (passLength.value.length < 6) {
+          alert('6자 미만');
+          e.preventDefault();
+        }
+      });
+
+      //
+      idInput.addEventListener('change', ()=>{ //input란에 입력한 값이 변할때 실행되는 이벤트
+        console.log('입력값 바꾸기');
+      })
+
+      var badgeClick = document.querySelector('.badge');
+      var navBar = document.querySelector('.navbar');
+
+      var count = 0;
+
+      badgeClick.addEventListener('click', function(){
+        // count ++; 카운트 방법
+        count += 1;
+        // count = count + 1;
+        if (count%2==1) {
+          console.log('홀수');
+          this.innerText = 'Light 🔄';
+          navBar.classList.add('navbar-dark');
+          navBar.classList.add('bg-dark');
+        } else {
+          console.log('짝수');
+          this.innerText = 'Dark 🔄';
+          navBar.classList.remove('navbar-dark');
+          navBar.classList.remove('bg-dark');
+        }
+      })
+
+      for( var i=0; i<=9; i++){
+        // console.log(i);
+      }
+      // console.log(i);
+
+      // var alertStyle = document.querySelector('.alert').style;
+      // var count = 5;
+      // var timeLine = setInterval(function(){
+      //   count -= 1;
+      //   console.log(count);
+      //   if (count > 0){
+      //     document.querySelector('.time').innerHTML = count;
+      //   } else if ( count == 0){
+      //     alertStyle.display = 'none';
+      //     clearInterval(timeLine);
+      //   }
+      // }, 1000);
+
+      function 함수(){
+        console.log('안녕');
+        return 123
+        console.log('반가워');
+      }
+
+      함수();
+      console.log(함수());
+      //scroll
+      var font = document.querySelector('.navbar-brand');
+      var loremArea = document.querySelector('.lorem');
+
+      var all = document.querySelector('html');
+      
+      window.addEventListener('scroll', ()=>{
+        var scrollTop = window.scrollY;
+
+        if (scrollTop >= 100) {
+          console.log(scrollTop);
+          font.style.fontSize = 10 + 'px';
+        } else if (scrollTop < 100) {
+          font.style.fontSize = 20 + 'px';
+        }
+      });
+
+      loremArea.addEventListener('scroll', ()=>{
+        var scrollA = loremArea.scrollTop;
+        var scrollB = loremArea.scrollHeight;
+        var scrollC = loremArea.clientHeight;
+        console.log(scrollA, scrollB, scrollC);
+
+        if (scrollA + scrollC == scrollB) {
+          alert('yes!');
+        }
+      })
+      
+      //스크롤 할때 게이지가 찬다
+      var colorBar = document.querySelector('.bottom-bar .bar-color');
+      var bodyEl = document.querySelector('body');
+      var scrollMath = bodyEl.offsetHeight - window.innerHeight
+
+      window.addEventListener('scroll', ()=>{
+        var scroll = window.scrollY;
+        var perc = Math.floor(window.scrollY / scrollMath * 100) + '%';
+
+        colorBar.style.width = perc;
+        console.log(scroll);
+      });
+
+    </script>
+  </body>
+</html>

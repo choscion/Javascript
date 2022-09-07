@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scope Test</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+		const c = 50;
+		function scope1(){
+			a = 20;
+			console.log(c);
+		}
+		scope1();
+		console.log(a);
+
+		var b = 40;
+		function scope2(){
+			var b = 30;
+			console.log(b);
+		}
+		scope2();
+		console.log(b);
+
+		function scope3() {
+			console.log(c);
+		}
+		scope3();
+		console.log(c);
+	</script>
+</body>
+</html>
